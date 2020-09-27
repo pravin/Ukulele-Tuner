@@ -92,12 +92,12 @@ class UkeTuner:
                 "http://pravin.insanitybegins.com/dev/ukulele-tuner\n",
                 "You have to get the # to align with the |",
                 "Press <Enter> to move on to the next string"]
-        print "=" * self.term_width
+        print("=" * self.term_width)
         for line in lines:
             ll = len(line) 
             spaces = (self.term_width - ll) / 2 # This computation is used to center the text
-            print ' ' * spaces, line
-        print "=" * self.term_width
+            print(' ' * int(spaces), line)
+        print("=" * self.term_width)
         
     def _open_audio(self):
         """ Opens the audio device for listening """
@@ -122,7 +122,7 @@ class UkeTuner:
     def _switch_string(self, string):
         """ Sets the target frequency and tells the user to move to the next string """
         freq, string_num, help = self.data[string]
-        print "\033[0m\nTuning %s string (String %s) [%s]" % (string, string_num, help)
+        print("\033[0m\nTuning %s string (String %s) [%s]" % (string, string_num, help))
         self.target_freq = freq
 
     def _loop(self):
@@ -191,7 +191,7 @@ class UkeTuner:
         """ Prints a meter to help tune """
         negative = value > 0
         value = abs(int(value))
-        center = self.term_width/2
+        center = int(self.term_width/2)
         if value >= center: 
             value = center - 2
 
