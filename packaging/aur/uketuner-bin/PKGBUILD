@@ -1,0 +1,22 @@
+# Maintainer: Pravin Paratey <pravinp@gmail.com>
+pkgname=uketuner-bin
+_pkgname=uketuner
+pkgver=0.2.0
+pkgrel=1
+pkgdesc="A console utility to tune your ukulele (prebuilt binary)"
+arch=('x86_64' 'aarch64')
+url="https://github.com/pravin/Ukulele-Tuner"
+license=('GPL-3.0-or-later')
+depends=('alsa-lib' 'gcc-libs' 'glibc')
+provides=("$_pkgname")
+conflicts=("$_pkgname")
+source_x86_64=("$url/releases/download/v$pkgver/$_pkgname-x86_64-unknown-linux-gnu.tar.xz")
+source_aarch64=("$url/releases/download/v$pkgver/$_pkgname-aarch64-unknown-linux-gnu.tar.xz")
+sha256sums_x86_64=('SKIP') # Run `updpkgsums` once the release is published
+sha256sums_aarch64=('SKIP')
+
+package() {
+  cd "$_pkgname-$CARCH-unknown-linux-gnu"
+  install -Dm0755 -t "$pkgdir/usr/bin/" "$_pkgname"
+  install -Dm0644 -t "$pkgdir/usr/share/doc/$_pkgname/" README.md
+}

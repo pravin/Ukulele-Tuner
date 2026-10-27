@@ -1,0 +1,27 @@
+[package]
+name = "uketuner"
+version = "0.2.0"
+edition = "2021"
+description = "A console utility to tune your ukulele"
+authors = ["Pravin Paratey <pravinp@gmail.com>"]
+license = "GPL-3.0-or-later"
+repository = "https://github.com/pravin/Ukulele-Tuner"
+readme = "README.md"
+keywords = ["ukulele", "tuner", "music", "cli", "audio"]
+categories = ["command-line-utilities", "multimedia::audio"]
+
+[dependencies]
+anyhow = "1.0.104"
+clap = { version = "4.6.7", features = ["derive"] }
+cpal = "0.18.2"
+crossterm = "0.29.0"
+rustfft = "6.4.1"
+
+[profile.release]
+lto = true
+strip = true
+codegen-units = 1
+
+# The profile that 'dist' will build with
+[profile.dist]
+inherits = "release"

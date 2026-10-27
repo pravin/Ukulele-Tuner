@@ -1,0 +1,37 @@
+# Maintainer: Pravin Paratey <pravinp@gmail.com>
+pkgname=uketuner
+pkgver=0.2.0
+pkgrel=1
+pkgdesc="A console utility to tune your ukulele"
+arch=('x86_64' 'aarch64')
+url="https://github.com/pravin/Ukulele-Tuner"
+license=('GPL-3.0-or-later')
+depends=('alsa-lib' 'gcc-libs' 'glibc')
+makedepends=('cargo')
+source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
+sha256sums=('SKIP') # Run `updpkgsums` once the tag is published
+
+prepare() {
+  cd "Ukulele-Tuner-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo fetch --locked --target "$(rustc -vV | sed -n 's/host: //p')"
+}
+
+build() {
+  cd "Ukulele-Tuner-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  export CARGO_TARGET_DIR=target
+  cargo build --frozen --release
+}
+
+check() {
+  cd "Ukulele-Tuner-$pkgver"
+  export RUSTUP_TOOLCHAIN=stable
+  cargo test --frozen --release
+}
+
+package() {
+  cd "Ukulele-Tuner-$pkgver"
+  install -Dm0755 -t "$pkgdir/usr/bin/" "target/release/$pkgname"
+  install -Dm0644 -t "$pkgdir/usr/share/doc/$pkgname/" README.md
+}
