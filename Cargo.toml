@@ -6,9 +6,11 @@ description = "A console utility to tune your ukulele"
 authors = ["Pravin Paratey <pravinp@gmail.com>"]
 license = "GPL-3.0-or-later"
 repository = "https://github.com/pravin/Ukulele-Tuner"
+homepage = "https://github.com/pravin/Ukulele-Tuner"
 readme = "README.md"
 keywords = ["ukulele", "tuner", "music", "cli", "audio"]
 categories = ["command-line-utilities", "multimedia::audio"]
+include = ["/src", "/README.md", "/LICENSE"]
 
 [dependencies]
 anyhow = "1.0.104"

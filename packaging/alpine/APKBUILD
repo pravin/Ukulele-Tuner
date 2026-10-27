@@ -1,0 +1,31 @@
+# Contributor: Pravin Paratey <pravinp@gmail.com>
+# Maintainer: Pravin Paratey <pravinp@gmail.com>
+pkgname=uketuner
+pkgver=0.2.0
+pkgrel=0
+pkgdesc="Console utility to tune your ukulele"
+url="https://github.com/pravin/Ukulele-Tuner"
+arch="all"
+license="GPL-3.0-or-later"
+makedepends="cargo cargo-auditable alsa-lib-dev"
+subpackages="$pkgname-doc"
+source="$pkgname-$pkgver.tar.gz::https://github.com/pravin/Ukulele-Tuner/archive/refs/tags/v$pkgver.tar.gz"
+builddir="$srcdir/Ukulele-Tuner-$pkgver"
+
+prepare() {
+	default_prepare
+	cargo fetch --target="$CTARGET" --locked
+}
+
+build() {
+	cargo auditable build --frozen --release
+}
+
+check() {
+	cargo test --frozen
+}
+
+package() {
+	install -Dm755 target/release/$pkgname -t "$pkgdir"/usr/bin/
+	install -Dm644 README.md -t "$pkgdir"/usr/share/doc/$pkgname/
+}

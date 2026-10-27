@@ -32,12 +32,22 @@ powershell -ExecutionPolicy Bypass -c "irm https://github.com/pravin/Ukulele-Tun
 You can also download an archive for your platform from the
 [releases page](https://github.com/pravin/Ukulele-Tuner/releases).
 
+### Package managers
+
+```sh
+brew install pravin/tap/uketuner     # Homebrew (macOS and Linux)
+yay -S uketuner                      # Arch Linux (AUR), or uketuner-bin for the prebuilt binary
+cargo install uketuner               # Any platform with Rust
+```
+
 ### From source
 
 Install [Rust](https://rustup.rs/), then:
 
 ```sh
-cargo install --git https://github.com/pravin/Ukulele-Tuner.git
+git clone https://github.com/pravin/Ukulele-Tuner.git
+cd Ukulele-Tuner
+cargo install --path .
 ```
 
 On Linux, building needs the ALSA headers and `pkg-config`:
@@ -134,7 +144,9 @@ git tag v0.2.0
 git push --tags
 ```
 
-GitHub Actions then builds the binaries and installers and publishes a GitHub release.
+GitHub Actions then builds the binaries and installers, publishes a GitHub release, updates the Homebrew
+tap and publishes to crates.io. See [packaging/README.md](packaging/README.md) for the one-time setup and
+for the AUR, Nix and Alpine packages.
 
 ## Contributing
 
