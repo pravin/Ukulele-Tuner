@@ -30,5 +30,5 @@ package() {
 	install -Dm644 README.md -t "$pkgdir"/usr/share/doc/$pkgname/
 }
 sha512sums="
-011cb122cef3b523fde622b6ebf8c8b8d0d7204d9638249e80318dc19d36d4bf147e5a1321ec46677441f87e0844998f967beaa52ae56348af55b359ce6b7e80  uketuner-0.2.0.tar.gz
+216beec3ae946804ad4f1b7ec88a3cc2afd9525e3fdf77a9a0c99fcac93550572fcf9fb6031968dae3132c396918ddc4d5de2fa445c6a65ef713b64c20792540  uketuner-0.2.0.tar.gz
 "

@@ -9,7 +9,7 @@ license=('GPL-3.0-or-later')
 depends=('alsa-lib' 'glibc' 'libgcc')
 makedepends=('cargo')
 source=("$pkgname-$pkgver.tar.gz::$url/archive/refs/tags/v$pkgver.tar.gz")
-sha256sums=('d0015842bf8473d020128d25baa62b45dc5ae7b1fbdb1d13ae9221166d30266a')
+sha256sums=('ba00d59269a6ff7ab7a2883533762eea871ee6d822d7e73f55c3f39242e3ba93')
 
 prepare() {
   cd "Ukulele-Tuner-$pkgver"
