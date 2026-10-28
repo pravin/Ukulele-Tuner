@@ -29,3 +29,6 @@ package() {
 	install -Dm755 target/release/$pkgname -t "$pkgdir"/usr/bin/
 	install -Dm644 README.md -t "$pkgdir"/usr/share/doc/$pkgname/
 }
+sha512sums="
+011cb122cef3b523fde622b6ebf8c8b8d0d7204d9638249e80318dc19d36d4bf147e5a1321ec46677441f87e0844998f967beaa52ae56348af55b359ce6b7e80  uketuner-0.2.0.tar.gz
+"

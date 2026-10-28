@@ -15,7 +15,7 @@ rustPlatform.buildRustPackage (finalAttrs: {
     owner = "pravin";
     repo = "Ukulele-Tuner";
     tag = "v${finalAttrs.version}";
-    hash = lib.fakeHash;
+    hash = "sha256-MWiK0AV7Gv6uYo3ZLuXg8ic+LX6mivK/FGyWzp97kG8=";
   };
 
   cargoHash = "sha256-AF4+NRBSzj96aMFhyi5H1QffA8IvwFWYkNGCaA5UAwU=";

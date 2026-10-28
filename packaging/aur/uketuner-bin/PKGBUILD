@@ -12,8 +12,8 @@ provides=("$_pkgname")
 conflicts=("$_pkgname")
 source_x86_64=("$url/releases/download/v$pkgver/$_pkgname-x86_64-unknown-linux-gnu.tar.xz")
 source_aarch64=("$url/releases/download/v$pkgver/$_pkgname-aarch64-unknown-linux-gnu.tar.xz")
-sha256sums_x86_64=('SKIP') # Run `updpkgsums` once the release is published
-sha256sums_aarch64=('SKIP')
+sha256sums_x86_64=('4bd190b8c51326d2f5e9f8f096069cd16d4fb1dddaafd41c889a5f058318df19')
+sha256sums_aarch64=('c4a28b08858fa3b3e6110ddec716e508ba8b33443fb654c2a7d1be6f92b34c92')
 
 package() {
   cd "$_pkgname-$CARCH-unknown-linux-gnu"
